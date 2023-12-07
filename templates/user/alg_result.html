@@ -1,0 +1,84 @@
+{% extends 'user/index.html' %}
+{% block body %}
+
+
+
+<form id="form1" name="form1" method="post" action="/tutor_alg_post">
+    <h3> Keyword extracted using yake</h3>
+<br>
+    <table class="table table-bordered">
+    <tr>
+        <th>Slno</th>
+        <th>Ngram</th>
+        <th>Prob</th>
+    </tr>
+
+    {% for u in data %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ u.0 }}</td>
+            <td>{{ u.1 }}</td>
+        </tr>
+    {% endfor %}
+</table><br><br>
+
+
+ <h3> Wiki  extracted content</h3>
+<br>
+    <table class="table table-bordered">
+    <tr>
+        <th>Slno</th>
+        <th>Extracted Contents</th>
+    </tr>
+
+    {% for u in wikicontent %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ u }}</td>
+
+        </tr>
+    {% endfor %}
+</table><br><br>
+
+<h3> Generated questions using Pipeline</h3>
+<br>
+    <table class="table table-bordered">
+    <tr>
+        <th>Slno</th>
+        <th>Question</th>
+        <th>Answer</th>
+    </tr>
+
+    {% for u in qa %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ u.question }}</td>
+            <td>{{ u.answer }}</td>
+
+        </tr>
+    {% endfor %}
+</table><br><br>
+
+
+
+<h3> Summerization using Bert</h3>
+<br>
+    <table class="table table-bordered">
+    <tr>
+        <th>Slno</th>
+        <th>Summary</th>
+
+    </tr>
+
+    {% for u in sm %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ u.summary_text }}</td>
+
+
+        </tr>
+    {% endfor %}
+</table>
+</form>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'user/index.html' %}
+{% block body  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/myapp/edit_prof_pst/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table table-bordered">
+        <tr>
+            <td><input type="hidden" name="id" value="{{ dt.id }}" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>Photo</td>
+            <td><img src="{{ dt.Photo }}" height="60px" width="60px"><input type="file" name="photo" value="" class="form-control" ></td>
+        </tr>
+
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="name" value="{{ dt.Name }}" class="form-control"  ></td>
+        </tr>
+
+        <tr>
+            <td>Phone</td>
+            <td><input type="text" name="phone" value="{{ dt.Phone }}" class="form-control"  ></td>
+        </tr>
+
+        <tr>
+            <td>Email</td>
+            <td><input type="text" name="email" value="{{ dt.Email }}" class="form-control" ></td>
+        </tr>
+
+        <tr>
+            <td>Dob</td>
+            <td><input type="text" name="dob" value="{{ dt.Dob }}" class="form-control" ></td>
+        </tr>
+
+        <tr align="center">
+            <td colspan="2"><input type="submit" name="edit" value="Edit" class="btn btn-success"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'user/index.html' %}
+{% block body  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <table class="table table-bordered">
+
+        <tr>
+            <td>Photo</td>
+            <td><img src="{{ dt.Photo }}" height="60px" width="60px"></td>
+        </tr>
+
+        <tr>
+            <td>Name</td>
+            <td>{{ dt.Name }}</td>
+        </tr>
+
+        <tr>
+            <td>Phone</td>
+            <td>{{ dt.Phone }}</td>
+        </tr>
+
+        <tr>
+            <td>Email</td>
+            <td>{{ dt.Email }}</td>
+        </tr>
+
+        <tr>
+            <td>Dob</td>
+            <td>{{ dt.Dob }}</td>
+        </tr>
+
+     <tr align="center">
+         <td colspan="2"><a href="/myapp/edit_prof/" class="btn btn-success">Edit</a></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'admin/aindex.html' %}
+{% block body  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <table class="table table-bordered">
+        <tr>
+            <td>Sl.no</td>
+            <td>Complaint</td>
+            <td>Date</td>
+            <td>Status</td>
+            <td>User</td>
+            <td>Reply</td>
+        </tr>
+        {% for i in dt %}
+            <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.compliant }}</td>
+            <td>{{ i.date }}</td>
+            <td>{{ i.status }}</td>
+            <td>{{ i.USER.Name }}</td>
+                {% if i.status == 'pending' %}
+            <td><a href="/myapp/reply/{{ i.id }}">Reply</a></td>
+                {% else %}
+            <td>{{ i.replay }}</td>
+            {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+</form>
+</body>
+</html>
+{% endblock %}

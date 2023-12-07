@@ -1,0 +1,28 @@
+{% extends 'user/index.html' %}
+{% block body %}
+
+
+
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered">
+    <tr>
+      <th width="50" height="48">SlNo.</th>
+      <th width="105">Date</th>
+      <th width="100">Docfile</th>
+      <th width="50">&nbsp;</th>
+      <th width="133">Voicefile</th>
+      <th width="50">&nbsp;</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.qafilename }}</td>
+      <td><a href="{{ i.qafilename }}" download="" class="btn btn-success">download</a></td>
+      <td>{{ i.voicefilename }}</td>
+      <td><a href="{{ i.voicefilename }}" download="" class="btn btn-success">download</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'admin/aindex.html' %}
+{% block body  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form >
+    <table class="table table-bordered">
+        <tr>
+            <td>Sl.No</td>
+            <td>Name</td>
+            <td>Phone</td>
+            <td>Email</td>
+            <td>DOB</td>
+            <td>Gender</td>
+            <td>Address</td>
+            <td>Photo</td>
+        </tr>
+{% for i in dt %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.Name }}</td>
+        <td>{{ i.Phone }}</td>
+        <td>{{ i.Email }}</td>
+        <td>{{ i.Dob }}</td>
+        <td>{{ i.Gender }}</td>
+        <td>{{ i.Place }}<br>{{ i.Post }}<br>{{ i.District }}<br>{{ i.State }}<br>{{ i.Pin }}</td>
+        <td><img src="{{ i.Photo }}" height="60px" width="60px"></td>
+    </tr>
+{% endfor %}
+    </table>
+</form>
+</body>
+</html>
+{% endblock %}
+
+

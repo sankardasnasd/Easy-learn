@@ -1,0 +1,90 @@
+<html>
+<head xmlns="http://www.w3.org/1999/html">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Easy Learn : AI</title>
+    <meta name="description" content="A Voice Note App that allows you to take voice and/or text notes and play them back.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/static/file/ico/favicon.ico">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="/static/file/css/style.css">
+    <!-- Bootstrap CDN CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-0Mou2qXGeXK7k/Ue/a1hspEVcEP2zCpoQZw8/MPeUgISww+VmDJcy2ri9tX0a6iy" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div class="container-fluid align-center">
+        <img src="/static/file/img/code-mic-150.png" alt="Voice Note App Logo">
+        <h1>Easy Learn</h1>
+{#        <p class="page-description">This app allows you to take voice and/or text notes and play them back.</p>#}
+
+        <h3 class="no-browser-support">Sorry, Your Browser Doesn't Support the Web Speech API. Try Opening This Demo In Google Chrome.</h3>
+        <div class="app">
+            <div class="row">
+                <div class="col-md-12 align-center">
+                    <h3>Add New Voice Note OR Upload a File</h3>
+
+                    <form method="post" action="/myapp/user_file_upload_post/" enctype="multipart/form-data">
+                        {% csrf_token %}
+                    <div class="input-single">
+                       <input type="file" name="file" class="form-control" style="margin-left: 145px;margin-right: 200px;width: 1150px"><br>
+                        <button type="submit" value="Extract" class="btn-success" title="Extract"></button>
+
+                    </div>
+                    </form>
+
+
+                    <form method="post" action="/myapp/user_alg_post/">
+                        {% csrf_token %}
+
+                    <div class="input-single">
+                        <textarea id="note-textarea" name="textarea" placeholder="Create a new note by typing or using voice recognition." rows="6">{{ data }}</textarea>
+{#                             <input type="submit" value="Process">#}
+
+                    </div>
+
+                    <button id="start-record-btn" class="btn-success" title="Start Recording">Start Recognition</button>
+                    <button id="pause-record-btn" class="btn-warning" title="Pause Recording">Pause Recognition</button>
+                   <button type="submit" value="Process" class="btn-info" title="Process">Process</button>
+                    </form>
+                    <p id="recording-instructions">Press the
+                        <strong>Start Recognition</strong> button and allow access.</p>
+                </div>
+{#                <div class="col-md-6 align-center">#}
+{#                    <h3>My Voice Notes</h3>#}
+{#                    <ul id="notes">#}
+{#                        <li>#}
+{#                            <p class="no-notes">You don't have any notes.</p>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </div>#}
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /app -->
+    </div>
+
+    <div id="footer">
+        <div class="clearfix1">
+            <div class="container">
+                <div class="row">
+
+{#                    <div class="center">#}
+{#                        <p>Speech to Text Voice Note App 2018</p>#}
+{#                    </div>#}
+
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+    </div>
+    <!-- /footer -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/static/file/js/script.js"></script>
+
+</body>
+</html>
